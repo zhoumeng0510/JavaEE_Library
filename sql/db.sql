@@ -71,3 +71,7 @@ INSERT INTO javaee_library.user VALUE (NULL, 'u1', 'p', 'r');
 INSERT INTO javaee_library.user VALUE (NULL, 'u2', 'p', 'r');
 ROLLBACK;
 COMMIT;
+
+TRUNCATE TABLE javaee_library.user;
+TRUNCATE TABLE javaee_library.user_book;
+TRUNCATE TABLE javaee_library.book;
