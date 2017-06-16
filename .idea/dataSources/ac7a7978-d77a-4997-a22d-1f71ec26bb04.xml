@@ -36,275 +36,324 @@
     <table id="24" parent="16" name="user">
       <Comment>用户表</Comment>
     </table>
-    <column id="25" parent="17" name="col">
+    <table id="25" parent="16" name="user_book">
+      <Comment>用户-图书表</Comment>
+    </table>
+    <column id="26" parent="17" name="col">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="26" parent="18" name="id">
+    <column id="27" parent="18" name="id">
       <Position>1</Position>
       <Comment>ID Pk</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="27" parent="18" name="title">
+    <column id="28" parent="18" name="title">
       <Position>2</Position>
       <Comment>课程名</Comment>
       <DataType>varchar(191)|0</DataType>
     </column>
-    <column id="28" parent="18" name="credit">
+    <column id="29" parent="18" name="credit">
       <Position>3</Position>
       <Comment>学分</Comment>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="29" parent="18" name="title">
+    <index id="30" parent="18" name="title">
       <ColNames>title</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="30" parent="18" name="PRIMARY">
+    <key id="31" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="31" parent="18" name="title">
+    <key id="32" parent="18" name="title">
       <ColNames>title</ColNames>
       <UnderlyingIndexName>title</UnderlyingIndexName>
     </key>
-    <column id="32" parent="19" name="id">
+    <column id="33" parent="19" name="id">
       <Position>1</Position>
       <Comment>ID PK</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="33" parent="19" name="username">
+    <column id="34" parent="19" name="username">
       <Position>2</Position>
       <DataType>varchar(191)|0</DataType>
     </column>
-    <column id="34" parent="19" name="password">
+    <column id="35" parent="19" name="password">
       <Position>3</Position>
       <DataType>varchar(191)|0</DataType>
     </column>
-    <column id="35" parent="19" name="email">
+    <column id="36" parent="19" name="email">
       <Position>4</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="36" parent="19" name="idx_password">
+    <index id="37" parent="19" name="idx_password">
       <ColNames>password</ColNames>
     </index>
-    <index id="37" parent="19" name="idx_username">
+    <index id="38" parent="19" name="idx_username">
       <ColNames>username</ColNames>
     </index>
-    <key id="38" parent="19" name="PRIMARY">
+    <key id="39" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="39" parent="20" name="id">
+    <column id="40" parent="20" name="id">
       <Position>1</Position>
       <Comment>ID PK</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="40" parent="20" name="sno">
+    <column id="41" parent="20" name="sno">
       <Position>2</Position>
       <Comment>学号</Comment>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <column id="41" parent="20" name="name">
+    <column id="42" parent="20" name="name">
       <Position>3</Position>
       <Comment>姓名</Comment>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="42" parent="20" name="intro">
+    <column id="43" parent="20" name="intro">
       <Position>4</Position>
       <Comment>简介</Comment>
       <DataType>text|0</DataType>
     </column>
-    <column id="43" parent="20" name="gender">
+    <column id="44" parent="20" name="gender">
       <Position>5</Position>
       <Comment>性别</Comment>
       <DataType>char(2)|0</DataType>
       <DefaultExpression>&apos;男&apos;</DefaultExpression>
     </column>
-    <column id="44" parent="20" name="age">
+    <column id="45" parent="20" name="age">
       <Position>6</Position>
       <Comment>年龄</Comment>
       <DataType>int(10) unsigned|0</DataType>
     </column>
-    <column id="45" parent="20" name="height">
+    <column id="46" parent="20" name="height">
       <Position>7</Position>
       <Comment>身高</Comment>
       <DataType>double(3,2)|0</DataType>
     </column>
-    <column id="46" parent="20" name="price">
+    <column id="47" parent="20" name="price">
       <Position>8</Position>
       <Comment>价格</Comment>
       <DataType>decimal(10,3)|0</DataType>
     </column>
-    <column id="47" parent="20" name="dob">
+    <column id="48" parent="20" name="dob">
       <Position>9</Position>
       <Comment>出生日期</Comment>
       <DataType>date|0</DataType>
     </column>
-    <column id="48" parent="20" name="time">
+    <column id="49" parent="20" name="time">
       <Position>10</Position>
       <Comment>时间</Comment>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="49" parent="20" name="PRIMARY">
+    <key id="50" parent="20" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="50" parent="21" name="id">
+    <column id="51" parent="21" name="id">
       <Position>1</Position>
       <Comment>ID PK</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="51" parent="21" name="studentId">
+    <column id="52" parent="21" name="studentId">
       <Position>2</Position>
       <Comment>学生 ID</Comment>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="52" parent="21" name="courseId">
+    <column id="53" parent="21" name="courseId">
       <Position>3</Position>
       <Comment>课程 ID</Comment>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="53" parent="21" name="score">
+    <column id="54" parent="21" name="score">
       <Position>4</Position>
       <Comment>考试成绩</Comment>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="54" parent="21" name="fk_student_course_courseId">
+    <index id="55" parent="21" name="fk_student_course_courseId">
       <ColNames>courseId</ColNames>
     </index>
-    <index id="55" parent="21" name="fk_student_course_studentId">
+    <index id="56" parent="21" name="fk_student_course_studentId">
       <ColNames>studentId</ColNames>
     </index>
-    <key id="56" parent="21" name="PRIMARY">
+    <key id="57" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="57" parent="21" name="fk_student_course_studentId">
+    <foreign-key id="58" parent="21" name="fk_student_course_studentId">
       <ColNames>studentId</ColNames>
       <RefSchemaName>db_1702</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="58" parent="21" name="fk_student_course_courseId">
+    <foreign-key id="59" parent="21" name="fk_student_course_courseId">
       <ColNames>courseId</ColNames>
       <RefSchemaName>db_1702</RefSchemaName>
       <RefTableName>course</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="59" parent="22" name="id">
+    <column id="60" parent="22" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="60" parent="22" name="colNew">
+    <column id="61" parent="22" name="colNew">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="61" parent="22" name="col2">
+    <column id="62" parent="22" name="col2">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="62" parent="22" name="col1">
+    <column id="63" parent="22" name="col1">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="63" parent="22" name="PRIMARY">
+    <key id="64" parent="22" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="64" parent="23" name="id">
+    <column id="65" parent="23" name="id">
       <Position>1</Position>
       <Comment>ID PK</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="65" parent="23" name="title">
+    <column id="66" parent="23" name="title">
       <Position>2</Position>
       <Comment>书名</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="66" parent="23" name="author">
+    <column id="67" parent="23" name="author">
       <Position>3</Position>
       <Comment>作者</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="23" name="pub">
+    <column id="68" parent="23" name="pub">
       <Position>4</Position>
       <Comment>出版社</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="23" name="time">
+    <column id="69" parent="23" name="time">
       <Position>5</Position>
       <Comment>出版时间</Comment>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="69" parent="23" name="price">
+    <column id="70" parent="23" name="price">
       <Position>6</Position>
       <Comment>定价</Comment>
       <DataType>decimal(8,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="70" parent="23" name="amount">
+    <column id="71" parent="23" name="amount">
       <Position>7</Position>
       <Comment>数量</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="71" parent="23" name="PRIMARY">
+    <key id="72" parent="23" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="72" parent="24" name="id">
+    <column id="73" parent="24" name="id">
       <Position>1</Position>
       <Comment>ID PK</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="73" parent="24" name="username">
+    <column id="74" parent="24" name="username">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="74" parent="24" name="password">
+    <column id="75" parent="24" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="75" parent="24" name="role">
+    <column id="76" parent="24" name="role">
       <Position>4</Position>
       <Comment>角色：用户；管理员</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;用户&apos;</DefaultExpression>
     </column>
-    <key id="76" parent="24" name="PRIMARY">
+    <key id="77" parent="24" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="78" parent="25" name="userId">
+      <Position>1</Position>
+      <Comment>PK FK</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="79" parent="25" name="bookId">
+      <Position>2</Position>
+      <Comment>PK FK</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="80" parent="25" name="borrowTime">
+      <Position>3</Position>
+      <Comment>借书时间</Comment>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="81" parent="25" name="returnTime">
+      <Position>4</Position>
+      <Comment>还书时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="82" parent="25" name="user_book_fk_bookId">
+      <ColNames>bookId</ColNames>
+    </index>
+    <key id="83" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId
+bookId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="84" parent="25" name="user_book_fk_userId">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>javaee_library</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="85" parent="25" name="user_book_fk_bookId">
+      <ColNames>bookId</ColNames>
+      <RefSchemaName>javaee_library</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

@@ -69,6 +69,8 @@ public class UserAction extends HttpServlet {
                 req.getSession().setAttribute("username", username);
                 req.getSession().setAttribute("role", role);
                 if ("用户".equals(role)) {
+                    int userId = resultSet.getInt("id");
+                    req.getSession().setAttribute("userId", userId);
                     resp.sendRedirect("index.jsp");
                     return;
                 }

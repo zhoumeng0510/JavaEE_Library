@@ -33,6 +33,27 @@ CREATE TABLE javaee_library.book (
 )
   COMMENT '图书表';
 
+DROP TABLE IF EXISTS javaee_library.user_book;
+CREATE TABLE javaee_library.user_book(
+  userId INT COMMENT 'PK FK',
+  bookId INT COMMENT 'PK FK',
+  borrowTime DATETIME DEFAULT now() COMMENT '借书时间',
+  returnTime DATETIME COMMENT '还书时间',
+  PRIMARY KEY (userId,bookId)
+)COMMENT '用户-图书表';
+
+ALTER TABLE javaee_library.user_book
+  ADD CONSTRAINT
+  user_book_fk_userId
+FOREIGN KEY (userId)
+REFERENCES javaee_library.user (id);
+
+ALTER TABLE javaee_library.user_book
+  ADD CONSTRAINT
+  user_book_fk_bookId
+FOREIGN KEY (bookId)
+REFERENCES javaee_library.book (id);
+
 
 INSERT INTO javaee_library.user (username, password, role) VALUES ('admin', '123', '管理员');
 
@@ -42,4 +63,11 @@ FROM javaee_library.user;
 SELECT *
 FROM javaee_library.book;
 
-SELECT * FROM javaee_library.book WHERE title LIKE '%HTML%'
+SELECT *
+FROM javaee_library.user_book;
+
+START TRANSACTION;
+INSERT INTO javaee_library.user VALUE (NULL, 'u1', 'p', 'r');
+INSERT INTO javaee_library.user VALUE (NULL, 'u2', 'p', 'r');
+ROLLBACK;
+COMMIT;

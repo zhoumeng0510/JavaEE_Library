@@ -265,7 +265,6 @@ public class BookAction extends HttpServlet {
                 return;
             }
             preparedStatement.setString(1, "%" + value + "%");
-            System.out.println("sql: " + preparedStatement);
             resultSet = preparedStatement.executeQuery();
             List<Book> books = new ArrayList<>();
             while (resultSet.next()) {
