@@ -17,6 +17,7 @@
 </c:if>
 <h1>主页</h1>
 ${sessionScope.username}
+<p><a href="user?action=logout">注销</a></p>
 <hr>
 </body>
 </html>

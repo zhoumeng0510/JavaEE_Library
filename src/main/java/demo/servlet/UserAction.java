@@ -36,6 +36,11 @@ public class UserAction extends HttpServlet {
             return;
         }
 
+        if ("logout".equals(action)) {
+            logout(req, resp);
+            return;
+        }
+
         Error.showError(req, resp);
     }
 
@@ -60,8 +65,18 @@ public class UserAction extends HttpServlet {
             preparedStatement.setString(2, password);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                req.getSession().setAttribute("username", resultSet.getString("username"));
-                resp.sendRedirect("index.jsp");
+                String role = resultSet.getString("role");
+                req.getSession().setAttribute("username", username);
+                req.getSession().setAttribute("role", role);
+                if ("用户".equals(role)) {
+                    resp.sendRedirect("index.jsp");
+                    return;
+                }
+                if ("管理员".equals(role)) {
+                    resp.sendRedirect("book?action=queryAll");
+                    return;
+                }
+                Error.showError(req, resp);
             } else {
                 req.setAttribute("message", "用户名或密码错误");
                 req.getRequestDispatcher("default.jsp").forward(req, resp);
@@ -109,6 +124,11 @@ public class UserAction extends HttpServlet {
         } finally {
             Db.close(resultSet, preparedStatement, connection);
         }
+    }
+
+    private void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().invalidate();
+        resp.sendRedirect("default.jsp");
     }
 
     @Override
