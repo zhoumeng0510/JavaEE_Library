@@ -15,8 +15,8 @@
 <hr>
 <form action="user" method="post">
     <input type="hidden" name="action" value="login">
-    <input type="text" name="username" placeholder="用户名"><br>
-    <input type="password" name="password" placeholder="密码"><br>
+    <input type="text" name="username" placeholder="用户名" value="张三"><br>
+    <input type="password" name="password" placeholder="密码" value="123"><br>
     <input type="submit" value="登录">
 </form>
 ${requestScope.message}

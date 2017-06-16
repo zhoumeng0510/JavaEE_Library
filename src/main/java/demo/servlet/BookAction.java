@@ -43,9 +43,19 @@ public class BookAction extends HttpServlet {
             return;
         }
 
+        if ("remove".equals(action)) {
+            remove(req, resp);
+            return;
+        }
+
 
         if ("modify".equals(action)) {
             modify(req, resp);
+            return;
+        }
+
+        if ("query".equals(action)) {
+            query(req, resp);
             return;
         }
 
@@ -207,6 +217,76 @@ public class BookAction extends HttpServlet {
             e.printStackTrace();
         } finally {
             Db.close(null, preparedStatement, connection);
+        }
+    }
+
+    private void remove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        int id = Integer.parseInt(req.getParameter("id"));
+
+        Connection connection = Db.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "DELETE FROM javaee_library.book WHERE id = ?";
+
+        try {
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+            } else {
+                Error.showError(req, resp);
+                return;
+            }
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+            resp.sendRedirect("book?action=queryAll");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Db.close(null, preparedStatement, connection);
+        }
+    }
+
+    private void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String key = req.getParameter("key");
+        String value = req.getParameter("value");
+
+        Connection connection = Db.getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        String sql = "SELECT * FROM javaee_library.book WHERE " + key + " LIKE ?";
+
+        try {
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+            } else {
+                Error.showError(req, resp);
+                return;
+            }
+            preparedStatement.setString(1, "%" + value + "%");
+            System.out.println("sql: " + preparedStatement);
+            resultSet = preparedStatement.executeQuery();
+            List<Book> books = new ArrayList<>();
+            while (resultSet.next()) {
+                Book book = new Book(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("author"),
+                        resultSet.getString("pub"),
+                        resultSet.getString("time"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("amount")
+                );
+                books.add(book);
+            }
+
+            req.getSession().setAttribute("books", books);
+            resp.sendRedirect("index.jsp");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Db.close(resultSet, preparedStatement, connection);
         }
     }
 

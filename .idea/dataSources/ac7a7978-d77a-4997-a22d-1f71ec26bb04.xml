@@ -296,9 +296,10 @@
     </column>
     <column id="75" parent="24" name="role">
       <Position>4</Position>
-      <Comment>管理员</Comment>
+      <Comment>角色：用户；管理员</Comment>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;用户&apos;</DefaultExpression>
     </column>
     <key id="76" parent="24" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
